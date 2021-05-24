@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Hello World | 雾苑</title>
+  <title>求100以内的素数 | 雾苑</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="一、求100以内的素数思路：123我们通过变量i来表示1到100的任意一个数，那么判断i是不是素数即可。素数就是除去1和它自身没有其它的因数的数。可以通过两层循环来判断i是不是素数。    1、解法一12345678910111213141516171819202122232425262728package basedatatype;&#x2F;** * @author Administrator *	求1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://example.com/2020/12/07/hello-world/index.html">
+<meta property="og:title" content="求100以内的素数">
+<meta property="og:url" content="http://example.com/2021/05/24/%E4%B8%80%E3%80%81%E6%B1%82100%E4%BB%A5%E5%86%85%E7%9A%84%E7%B4%A0%E6%95%B0/index.html">
 <meta property="og:site_name" content="雾苑">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="一、求100以内的素数思路：123我们通过变量i来表示1到100的任意一个数，那么判断i是不是素数即可。素数就是除去1和它自身没有其它的因数的数。可以通过两层循环来判断i是不是素数。    1、解法一12345678910111213141516171819202122232425262728package basedatatype;&#x2F;** * @author Administrator *	求1">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-12-07T12:26:26.543Z">
-<meta property="article:modified_time" content="2020-12-07T12:26:26.544Z">
+<meta property="article:published_time" content="2021-05-24T12:50:02.206Z">
+<meta property="article:modified_time" content="2021-05-24T12:49:33.439Z">
 <meta property="article:author" content="闲来揽秋雾">
+<meta property="article:tag" content="刷题">
+<meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="雾苑" type="application/atom+xml">
@@ -248,14 +250,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-一、求100以内的素数" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      求100以内的素数
     </h1>
   
 
@@ -267,8 +269,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2020/12/07/hello-world/" class="archive-article-date">
-        <time datetime="2020-12-07T12:26:26.543Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-07</time>
+<a href="/2021/05/24/%E4%B8%80%E3%80%81%E6%B1%82100%E4%BB%A5%E5%86%85%E7%9A%84%E7%B4%A0%E6%95%B0/" class="archive-article-date">
+        <time datetime="2021-05-24T12:50:02.206Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-24</time>
 </a>
 
   
@@ -281,7 +283,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">75字</span>
+      <span class="post-count">494字</span>
     </span>
   </span>
 
@@ -290,7 +292,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">2分</span>
     </span>
   </span>
 </div>
@@ -301,19 +303,21 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+    <h2 id="一、求100以内的素数"><a href="#一、求100以内的素数" class="headerlink" title="一、求100以内的素数"></a>一、求100以内的素数</h2><h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">我们通过变量i来表示1到100的任意一个数，那么判断i是不是素数即可。</span><br><span class="line">素数就是除去1和它自身没有其它的因数的数。</span><br><span class="line">可以通过两层循环来判断i是不是素数。</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h3 id="1、解法一"><a href="#1、解法一" class="headerlink" title="1、解法一"></a>1、解法一</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> basedatatype;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Administrator</span></span><br><span class="line"><span class="comment"> *	求100以内的素数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Variate</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//1、外层循环用来依次遍历1到100的数</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= <span class="number">100</span>; i++) &#123;</span><br><span class="line">			<span class="comment">//2、设置一个标志flag，用来表示是否是素数</span></span><br><span class="line">			<span class="keyword">boolean</span> flag = <span class="keyword">true</span>;</span><br><span class="line">			<span class="comment">//3、内层循环用来遍历除数j，j的范围为i-1到1</span></span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">2</span>; j &lt; i; j++) &#123;</span><br><span class="line">				<span class="comment">//4、判断是否能被除尽</span></span><br><span class="line">				<span class="keyword">if</span> (i % j == <span class="number">0</span>) &#123;</span><br><span class="line">					<span class="comment">//除尽,flag = false,表示i不是素数</span></span><br><span class="line">					flag = <span class="keyword">false</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> (flag == <span class="keyword">true</span>) &#123;</span><br><span class="line">				System.out.println(i);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这是简单的解法，时间复杂度比较高，O(n)= i<span class="emphasis">*j。</span></span><br></pre></td></tr></table></figure>
+
+<p>优化：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> basedatatype;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Administrator</span></span><br><span class="line"><span class="comment"> *	求100以内的素数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Variate</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//1、外层循环用来依次遍历1到100的数</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= <span class="number">100</span>; i++) &#123;</span><br><span class="line">			<span class="comment">//2、设置一个标志flag，用来表示是否是素数</span></span><br><span class="line">			<span class="keyword">boolean</span> flag = <span class="keyword">true</span>;</span><br><span class="line">			<span class="comment">//3、内层循环用来遍历除数j，j的范围为i-1到1</span></span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">2</span>; j &lt;= Math.sqrt(i); j++) &#123;<span class="comment">//优化处二</span></span><br><span class="line">				<span class="comment">//4、判断是否能被除尽</span></span><br><span class="line">				<span class="keyword">if</span> (i % j == <span class="number">0</span>) &#123;</span><br><span class="line">					<span class="comment">//除尽,flag = false,表示i不是素数</span></span><br><span class="line">					flag = <span class="keyword">false</span>;</span><br><span class="line">                    <span class="comment">//优化处一</span></span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> (flag == <span class="keyword">true</span>) &#123;</span><br><span class="line">				System.out.println(i);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2、解法二"><a href="#2、解法二" class="headerlink" title="2、解法二"></a>2、解法二</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> basedatatype;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Administrator</span></span><br><span class="line"><span class="comment"> *	求100以内的素数</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Variate</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">100</span>; i++) &#123;</span><br><span class="line">			<span class="comment">//如果是2，直接输出为素数</span></span><br><span class="line">			<span class="keyword">if</span> (i==<span class="number">2</span>) &#123;</span><br><span class="line">				System.out.println(i);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">2</span>; j &lt; i; j++) &#123;</span><br><span class="line">				<span class="comment">//如果除尽，跳出此层循环</span></span><br><span class="line">				<span class="keyword">if</span> (i%j == <span class="number">0</span>) &#123;</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="comment">//如果除到j=i-1了，说明这个i是素数</span></span><br><span class="line">				<span class="keyword">if</span> (j == i-<span class="number">1</span>) &#123;</span><br><span class="line">					System.out.println(i);</span><br><span class="line">				&#125;</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
     
 
@@ -360,7 +364,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="http://example.com/2020/12/07/hello-world/" title="Hello World" target="_blank">http://example.com/2020/12/07/hello-world/</a>
+          <a href="http://example.com/2021/05/24/一、求100以内的素数/" title="求100以内的素数" target="_blank">http://example.com/2021/05/24/一、求100以内的素数/</a>
         </li>
         
         <li>
@@ -377,7 +381,33 @@
   <div class="article-info article-info-index">
     
     
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">刷题</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
     
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Java编程题//" class="article-tag-list-link color3">Java编程题</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
     
 
@@ -427,7 +457,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2020/12/07/hello-world/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/05/24/%E4%B8%80%E3%80%81%E6%B1%82100%E4%BB%A5%E5%86%85%E7%9A%84%E7%B4%A0%E6%95%B0/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -442,15 +472,11 @@
 
 <nav id="article-nav">
   
-    <a href="/2021/05/19/Tomcat%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Tomcat端口占用解决方法
-        
-      </div>
-    </a>
   
+    <a href="/2021/05/19/Tomcat%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Tomcat端口占用解决方法</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -488,9 +514,9 @@
     <script src="https://giteement.oss-cn-beijing.aliyuncs.com/giteement.browser.js"></script>
   
   <script>
-  <!-- id: "Hello World" -->
+  <!-- id: "求100以内的素数" -->
   var giteement = new Giteement({
-    id: '20201207202626',
+    id: '20210524205002',
     owner: 'hlmin',
     repo: '',
     backcall_uri: '',
