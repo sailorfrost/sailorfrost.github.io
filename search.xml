@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>分类测试</title>
+    <url>/article/29513.html</url>
+    <content><![CDATA[<p>分类测试</p>
+]]></content>
+      <categories>
+        <category>test</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>随笔测试</title>
+    <url>/article/25544.html</url>
+    <content><![CDATA[<p>随笔测试</p>
+]]></content>
+      <categories>
+        <category>测试</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Tomcat端口占用解决方法</title>
     <url>/article/35447.html</url>
     <content><![CDATA[<p>在管理员权限下的cmd命令行：</p>
@@ -36,26 +57,5 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>分类测试</title>
-    <url>/article/29513.html</url>
-    <content><![CDATA[<p>分类测试</p>
-]]></content>
-      <categories>
-        <category>test</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>随笔测试</title>
-    <url>/article/25544.html</url>
-    <content><![CDATA[<p>随笔测试</p>
-]]></content>
-      <categories>
-        <category>测试</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-      </tags>
   </entry>
 </search>
