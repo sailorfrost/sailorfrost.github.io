@@ -104,7 +104,7 @@ aeaea}#container,body,html{height:100%;overflow-x:hidden;overflow-y:auto}#mobile
 .anm-canvas{display:block;position:fixed}.body-wrap{margin-bottom:80px}.mid-col{
 position:absolute;right:0;min-height:100%;background:#eaeaea;left:300px;width:au
 to}.mid-col.show{background:none;opacity:.9}.mid-col.show 
-.article{background:hsla(0,0%,100%,.3)}.left-col{background-image:url("/img/bg1.jpg");background:#fff;width:300px;pos
+.article{background:hsla(0,0%,100%,.3)}.left-col{background:#fff;width:300px;pos
 ition:fixed;opacity:1;transition:all .2s 
 ease-in;height:100%;z-index:999;overflow:hidden;overflow-y:auto;margin-bottom:15
 px}.left-col::-webkit-scrollbar{display:none}.left-col 
