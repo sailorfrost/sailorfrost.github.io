@@ -973,30 +973,31 @@ div.Section0{page:Section0;}</style></head><body style="tab-interval:21pt;text-j
 
 
 
-
+  <div id="giteement-ctn"></div>
   
-  <div id="gitment-ctn"></div>
-  
-    <!-- 中文 -->
-    <link rel="stylesheet" href="/lib/gitment.css">
-    <script src="/lib/gitment.js"></script>
+    <link rel="stylesheet" href="/lib/default.css">
+    <script src="/lib/giteement.browser.js"></script>
   
   <script>
-    <!-- id: "" -->
-    var gitment = new Gitment({
-      id: "20210527004023",
-      owner: 'true',
-      repo: 'sailorfrost',
-      oauth: {
-        client_id: 'cc20e5626e12519b53b1',
-        client_secret: '06b3246cb57262aef760b9ad7106b4953e443e17',
-      },
-    })
-    gitment.render('gitment-ctn')
+  <!-- id: "" -->
+  var giteement = new Giteement({
+    id: '20210527004023',
+    owner: 'hlmin',
+    repo: 'giteement',
+    backcall_uri: 'https://lecoding.ltd/',
+    oauth_uri: 'https://cors-anywhere.herokuapp.com/https://gitee.com/oauth/token',
+    oauth: {
+      client_id: '7718cd41844280701001967b55dcecffa8058d12fbb473b83d61ffe2ae525d4c',
+      client_secret: '6098a62c9f6b2ae0a4229f49cede30758d4e763b928183acc3d995f83350ebaf'
+    },
+  })
+  giteement.render('giteement-ctn')
   </script>
 
 
-  
+
+
+
 
 
 
