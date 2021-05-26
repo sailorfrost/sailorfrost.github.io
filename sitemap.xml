@@ -97,14 +97,14 @@
 
   
   <url>
-    <loc>http://example.com/categories/tomcat/</loc>
+    <loc>http://example.com/categories/test/</loc>
     <lastmod>2021-05-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://example.com/categories/test/</loc>
+    <loc>http://example.com/categories/tomcat/</loc>
     <lastmod>2021-05-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
