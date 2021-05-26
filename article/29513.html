@@ -420,6 +420,30 @@
 
 
 
+  <div id="giteement-ctn"></div>
+  
+    <link rel="stylesheet" href="/lib/default.css">
+    <script src="/lib/giteement.browser.js"></script>
+  
+  <script>
+  <!-- id: "分类测试" -->
+  var giteement = new Giteement({
+    id: '20210525014559',
+    owner: 'sailorfrost',
+    repo: 'sailorfrost',
+    backcall_uri: 'https://lecoding.ltd/',
+    oauth_uri: 'https://cors-anywhere.herokuapp.com/https://gitee.com/oauth/token',
+    oauth: {
+      client_id: 'cc20e5626e12519b53b1',
+      client_secret: 'ba0769416d14341e2dc817aa9f31c17de7bd53c8'
+    },
+  })
+  giteement.render('giteement-ctn')
+  </script>
+
+
+
+
 
 
 
