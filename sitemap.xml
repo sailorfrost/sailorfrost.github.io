@@ -64,6 +64,13 @@
     
   </url>
   
+  <url>
+    <loc>http://example.com/404.html</loc>
+    
+    <lastmod>2018-05-22</lastmod>
+    
+  </url>
+  
 
   <url>
     <loc>http://example.com/</loc>
