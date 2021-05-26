@@ -69,7 +69,7 @@
     <link href="http://example.com/article/35447.html"/>
     <id>http://example.com/article/35447.html</id>
     <published>2021-05-18T17:07:09.355Z</published>
-    <updated>2021-05-24T20:51:25.481Z</updated>
+    <updated>2021-05-26T16:17:53.818Z</updated>
     
     <content type="html"><![CDATA[<p>在管理员权限下的cmd命令行：</p><p>查看8080（端口号）的进程情况，输入：</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ano|<span class="built_in">findstr</span> <span class="number">8080</span></span><br></pre></td></tr></table></figure><p>杀死进程，输入：                </p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">taskkill</span> /pid <span class="number">10752</span>(进程号) /f</span><br></pre></td></tr></table></figure>]]></content>
     
