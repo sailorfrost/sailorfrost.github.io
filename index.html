@@ -227,36 +227,9 @@
 </p></center>
     
     <h1 id="一、在线教育项目之前言"><a href="#一、在线教育项目之前言" class="headerlink" title="一、在线教育项目之前言"></a>一、在线教育项目之前言</h1><h2 id="1、学习项目之前应具备的技术栈"><a href="#1、学习项目之前应具备的技术栈" class="headerlink" title="1、学习项目之前应具备的技术栈"></a>1、学习项目之前应具备的技术栈</h2><p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/%E6%8A%80%E6%9C%AF%E6%A0%88.png" alt="image-20210527152911535"></p>
-<h2 id="2、学习项目的准备"><a href="#2、学习项目的准备" class="headerlink" title="2、学习项目的准备"></a>2、学习项目的准备</h2><p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/%E5%87%86%E5%A4%87.png" alt="image-20210527153217741"></p>
-<h3 id="2-1、项目背景"><a href="#2-1、项目背景" class="headerlink" title="2.1、项目背景"></a>2.1、项目背景</h3><p>是一个B2C模式的职业技能在线教育系统，分为前台用户系统和后台运营平台。</p>
-<h3 id="2-2、商业模式"><a href="#2-2、商业模式" class="headerlink" title="2.2、商业模式"></a>2.2、商业模式</h3><p>此在线教育项目采用的模式为：</p>
-<p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/%E6%A8%A1%E5%BC%8F.png" alt="image-20210527154553325"></p>
-<p>.</p>
-<p>.</p>
-<p>.</p>
-<h3 id="2-3、技术认识（前后端分离开发）"><a href="#2-3、技术认识（前后端分离开发）" class="headerlink" title="2.3、技术认识（前后端分离开发）"></a>2.3、技术认识（前后端分离开发）</h3><p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF.png" alt="image-20210527154903648"></p>
-<p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/%E5%85%B6%E4%BB%96.png" alt="image-20210527155033373"></p>
-<h1 id="二、认识项目"><a href="#二、认识项目" class="headerlink" title="二、认识项目"></a>二、认识项目</h1><h2 id="1、功能简介"><a href="#1、功能简介" class="headerlink" title="1、功能简介"></a>1、功能简介</h2><p>是一个B2C模式的职业技能在线教育系统，分为前台用户系统和后台运营平台。</p>
-<h2 id="2、系统模块"><a href="#2、系统模块" class="headerlink" title="2、系统模块"></a>2、系统模块</h2><p>业务模块图：</p>
-<p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/%E6%A8%A1%E5%9D%97%E5%9B%BE.png" alt="image-20210527201849157"></p>
-<h2 id="3、系统架构"><a href="#3、系统架构" class="headerlink" title="3、系统架构"></a>3、系统架构</h2><p><strong>架构设计需要考虑的几个方面：</strong></p>
-<p><strong>性能：</strong>主要考虑访问频率，每个用户每天的访问次数。项目初始阶段用户的访问量并不大，如果考</p>
-<p>虑做运营推广，可能会迎来服务器访问量骤增，因此要考虑<strong>分布式部署，引入缓存</strong></p>
-<p><strong>可扩展性：</strong>系统功能会随着用户量的增加以及多变的互联网用户需求不断地扩展，因此考虑到系统</p>
-<p>的可扩展性的要求需要<strong>使用微服务架构，引入消息中间件</strong></p>
-<p><strong>高可用：</strong>系统一旦宕机，将会带来不可挽回的损失，因此必须做负载均衡，甚至是异地多活这类复</p>
-<p>杂的方案。如果数据丢失，修复将会非常麻烦，只能靠人工逐条修复，这个很难接受，因此需要考</p>
-<p>虑存储高可靠。我们需要考虑多种异常情况：机器故障、机房故障，针对机器故障，我们需要设计MySQL 同机房主备方案；针对机房故障，我们需要设计 MySQL 跨机房同步方案。</p>
-<p><strong>安全性：</strong>系统的信息有一定的隐私性，例如用户的个人身份信息，不包含强隐私（例如玉照、情</p>
-<p>感）的信息，因此使用账号密码管理、数据库访问权限控制即可。</p>
-<p><strong>成本：</strong>视频类网站的主要成本在于服务器成本、流量成本、存储成本、流媒体研发成本，中小型公</p>
-<p>司可以考虑使用云服务器和云服务。</p>
-<p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/01.png" alt="image-20210527202014966"></p>
-<p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/02.png" alt="image-20210527202102867"></p>
-<p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/03.png" alt="image-20210527202131995"></p>
-<h1 id="三、前后端分离开发介绍"><a href="#三、前后端分离开发介绍" class="headerlink" title="三、前后端分离开发介绍"></a>三、前后端分离开发介绍</h1><p>前后端分离开发是现在比较主流的开发架构：</p>
-<p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB.png" alt="image-20210527160602164"></p>
-
+    
+    <a class="article-more-a" href="/article/8339bf77.html#more">more >></a>
+    
     
 
     
