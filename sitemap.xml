@@ -2,30 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://lecoding.ltd/article/25544.html</loc>
+    <loc>https://lecoding.ltd/article/85cdc7ae.html</loc>
     
     <lastmod>2021-05-27</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://lecoding.ltd/article/0.html</loc>
-    
-    <lastmod>2021-05-27</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://lecoding.ltd/article/29513.html</loc>
-    
-    <lastmod>2021-05-26</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://lecoding.ltd/article/35447.html</loc>
-    
-    <lastmod>2021-05-26</lastmod>
     
   </url>
   
@@ -81,14 +60,14 @@
 
   
   <url>
-    <loc>https://lecoding.ltd/tags/tomcat/</loc>
+    <loc>https://lecoding.ltd/tags/%E6%96%87%E8%89%BA/</loc>
     <lastmod>2021-05-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://lecoding.ltd/tags/%E9%9A%8F%E7%AC%94/</loc>
+    <loc>https://lecoding.ltd/tags/%E6%91%98%E5%BD%95/</loc>
     <lastmod>2021-05-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -97,28 +76,7 @@
 
   
   <url>
-    <loc>https://lecoding.ltd/categories/tomcat/</loc>
-    <lastmod>2021-05-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lecoding.ltd/categories/test/</loc>
-    <lastmod>2021-05-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lecoding.ltd/categories/tomcat/%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8/</loc>
-    <lastmod>2021-05-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lecoding.ltd/categories/%E6%B5%8B%E8%AF%95/</loc>
+    <loc>https://lecoding.ltd/categories/%E6%91%98%E5%BD%95/</loc>
     <lastmod>2021-05-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
