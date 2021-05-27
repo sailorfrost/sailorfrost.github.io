@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lecoding.ltd/article/8339bf77.html</loc>
+    
+    <lastmod>2021-05-27</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://lecoding.ltd/tags/index.html</loc>
     
     <lastmod>2021-05-27</lastmod>
@@ -73,10 +80,31 @@
     <priority>0.6</priority>
   </url>
   
+  <url>
+    <loc>https://lecoding.ltd/tags/%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2021-05-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lecoding.ltd/tags/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/</loc>
+    <lastmod>2021-05-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
 
   
   <url>
     <loc>https://lecoding.ltd/categories/%E6%91%98%E5%BD%95/</loc>
+    <lastmod>2021-05-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lecoding.ltd/categories/%E9%A1%B9%E7%9B%AE/</loc>
     <lastmod>2021-05-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
