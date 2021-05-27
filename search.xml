@@ -38,6 +38,17 @@
 ]]></content>
   </entry>
   <entry>
+    <title></title>
+    <url>/article/0.html</url>
+    <content><![CDATA[<h1 id="使用hexo-Gitee搭建个人博客"><a href="#使用hexo-Gitee搭建个人博客" class="headerlink" title="使用hexo+Gitee搭建个人博客"></a>使用hexo+Gitee搭建个人博客</h1><h2 id="1、前言"><a href="#1、前言" class="headerlink" title="1、前言"></a>1、前言</h2><h6 id="Gitee是国内的托管平台，访问速度比较快，故而不选Github。"><a href="#Gitee是国内的托管平台，访问速度比较快，故而不选Github。" class="headerlink" title="Gitee是国内的托管平台，访问速度比较快，故而不选Github。"></a>Gitee是国内的托管平台，访问速度比较快，故而不选Github。</h6><h2 id="2、准备工作"><a href="#2、准备工作" class="headerlink" title="2、准备工作"></a>2、准备工作</h2><ul>
+<li>要有一个码云账号</li>
+<li>安装了node.js</li>
+<li>安装了windows端的git</li>
+</ul>
+<h2 id="3、环境搭建"><a href="#3、环境搭建" class="headerlink" title="3、环境搭建"></a>3、环境搭建</h2><p><img src="https://gitee.com/hlmin/blogImage/raw/master/image/wallhaven-zmwpoo.jpg" alt="wallhaven-zmwpoo"></p>
+]]></content>
+  </entry>
+  <entry>
     <title>分类测试</title>
     <url>/article/29513.html</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
