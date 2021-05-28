@@ -62,6 +62,8 @@
     <title>IDEA常用快捷键</title>
     <url>/article/566321e7.html</url>
     <content><![CDATA[<p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/20210528212635.jpg" alt="1"></p>
+<a id="more"></a>
+
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">ctrl+shift+alt：多行操作</span><br><span class="line">psvm：生成main()方法；</span><br><span class="line">fori：生成for循环；</span><br><span class="line">Ctrl+Alt+v：自动补齐返回值类型</span><br><span class="line">ctrl+o：覆写方法</span><br><span class="line">ctrl+i：实现接口中的方法</span><br><span class="line">ctrl+shift+u：大小写转换</span><br><span class="line">CTRL+SHIFT+Z：取消撤销</span><br><span class="line">Alt＋Insert：生成构造方法、getter、setter</span><br><span class="line">ctrl+y：删除当前行</span><br><span class="line">Ctrl+Shift+J：将选中的行合并成一行</span><br><span class="line">ctrl+g：定位到某一行</span><br><span class="line">Ctrl+Shitft+向下箭头：将光标所在的代码块向下整体移动</span><br><span class="line">Ctrl+Shift+向上箭头：将光标所在的代码块向上整体移动</span><br><span class="line">Alt+Shift+向下箭头：将行向下移动</span><br><span class="line">Alt+Shift+向上箭头：将行向上移动</span><br><span class="line">Ctrl+F：在当前文件中查找</span><br><span class="line">Ctrl+R：替换字符串</span><br><span class="line">Ctrl+Shift+F:在全局文件中查找字符串</span><br><span class="line">Ctrl+Shift+R：在全局中替换字符串</span><br><span class="line">Ctrl+Shift+Enter：自动补齐&#123;&#125;或者分号;</span><br><span class="line">Shift+Enter：在当前行的下方开始新行</span><br><span class="line">Ctrl+Alt+Enter：在当前行的上方插入新行</span><br><span class="line">Ctrl+Delete：删除光标所在至单词结尾处的所有字符</span><br></pre></td></tr></table></figure>
 
 ]]></content>
