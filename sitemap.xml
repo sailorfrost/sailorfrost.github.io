@@ -2,13 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://lecoding.ltd/tags/index.html</loc>
-    
-    <lastmod>2021-05-28</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://lecoding.ltd/article/16107.html</loc>
     
     <lastmod>2021-05-28</lastmod>
@@ -74,14 +67,14 @@
 
   
   <url>
-    <loc>https://lecoding.ltd/tags/%E6%96%87%E8%89%BA/</loc>
+    <loc>https://lecoding.ltd/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/</loc>
     <lastmod>2021-05-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://lecoding.ltd/tags/%E6%91%98%E5%BD%95/</loc>
+    <loc>https://lecoding.ltd/tags/IDEA/</loc>
     <lastmod>2021-05-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -102,14 +95,14 @@
   </url>
   
   <url>
-    <loc>https://lecoding.ltd/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/</loc>
+    <loc>https://lecoding.ltd/tags/%E6%96%87%E8%89%BA/</loc>
     <lastmod>2021-05-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://lecoding.ltd/tags/IDEA/</loc>
+    <loc>https://lecoding.ltd/tags/%E6%91%98%E5%BD%95/</loc>
     <lastmod>2021-05-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -118,7 +111,7 @@
 
   
   <url>
-    <loc>https://lecoding.ltd/categories/%E6%91%98%E5%BD%95/</loc>
+    <loc>https://lecoding.ltd/categories/%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2021-05-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -132,7 +125,7 @@
   </url>
   
   <url>
-    <loc>https://lecoding.ltd/categories/%E5%B7%A5%E5%85%B7/</loc>
+    <loc>https://lecoding.ltd/categories/%E6%91%98%E5%BD%95/</loc>
     <lastmod>2021-05-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
