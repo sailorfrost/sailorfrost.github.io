@@ -10,19 +10,21 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="数据库语言四大分类1、数据定义语言DDL（Data Ddefinition Language）1CREATE , DROP , ALTER , TRUNCATE   主要为以上操作 即对逻辑结构等有操作的，其中包括表结构，视图和索引。  1、CREATE操作1、创建数据库 1create database 数据库名 ;  2、创建表12345678910create table 表名(    id">
+  <meta name="description" content="数据库语言四大分类 1、数据定义语言DDL（Data Ddefinition Language）1CREATE , DROP , ALTER , TRUNCATE   主要为以上操作 即对逻辑结构等有操作的，其中包括表结构，视图和索引。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据库语言四大分类">
 <meta property="og:url" content="https://lecoding.ltd/article/42b03218.html">
 <meta property="og:site_name" content="雾苑">
-<meta property="og:description" content="数据库语言四大分类1、数据定义语言DDL（Data Ddefinition Language）1CREATE , DROP , ALTER , TRUNCATE   主要为以上操作 即对逻辑结构等有操作的，其中包括表结构，视图和索引。  1、CREATE操作1、创建数据库 1create database 数据库名 ;  2、创建表12345678910create table 表名(    id">
+<meta property="og:description" content="数据库语言四大分类 1、数据定义语言DDL（Data Ddefinition Language）1CREATE , DROP , ALTER , TRUNCATE   主要为以上操作 即对逻辑结构等有操作的，其中包括表结构，视图和索引。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/hlmin/blog-image/raw/master/image/20210605153908.jpeg">
 <meta property="article:published_time" content="2021-06-05T07:35:49.263Z">
-<meta property="article:modified_time" content="2021-06-05T07:35:14.350Z">
+<meta property="article:modified_time" content="2021-06-05T07:39:33.981Z">
 <meta property="article:author" content="闲来揽秋雾">
 <meta property="article:tag" content="MySQL">
 <meta property="article:tag" content="数据库">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/hlmin/blog-image/raw/master/image/20210605153908.jpeg">
   
     <link rel="alternative" href="/atom.xml" title="雾苑" type="application/atom+xml">
   
@@ -248,11 +250,14 @@
 
 </p></center>
     
-    <h1 id="数据库语言四大分类"><a href="#数据库语言四大分类" class="headerlink" title="数据库语言四大分类"></a>数据库语言四大分类</h1><h3 id="1、数据定义语言DDL（Data-Ddefinition-Language）"><a href="#1、数据定义语言DDL（Data-Ddefinition-Language）" class="headerlink" title="1、数据定义语言DDL（Data Ddefinition Language）"></a>1、数据定义语言DDL（Data Ddefinition Language）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE , DROP , ALTER , TRUNCATE</span><br></pre></td></tr></table></figure>
+    <h1 id="数据库语言四大分类"><a href="#数据库语言四大分类" class="headerlink" title="数据库语言四大分类"></a>数据库语言四大分类</h1><p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/20210605153908.jpeg"></p>
+<h3 id="1、数据定义语言DDL（Data-Ddefinition-Language）"><a href="#1、数据定义语言DDL（Data-Ddefinition-Language）" class="headerlink" title="1、数据定义语言DDL（Data Ddefinition Language）"></a>1、数据定义语言DDL（Data Ddefinition Language）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE , DROP , ALTER , TRUNCATE</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>主要为以上操作 即<code>对逻辑结构等有操作的</code>，其中包括表结构，视图和索引。</p>
 </blockquote>
+<a id="more"></a>
+
 <h4 id="1、CREATE操作"><a href="#1、CREATE操作" class="headerlink" title="1、CREATE操作"></a>1、CREATE操作</h4><h5 id="1、创建数据库"><a href="#1、创建数据库" class="headerlink" title="1、创建数据库"></a>1、创建数据库</h5> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create database 数据库名 ;</span><br></pre></td></tr></table></figure>
 
 <h5 id="2、创建表"><a href="#2、创建表" class="headerlink" title="2、创建表"></a>2、创建表</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">create table 表名(</span><br><span class="line">    id int ,</span><br><span class="line">    spend int ,</span><br><span class="line">    cid int ,</span><br><span class="line">    comment varchar(255) ,</span><br><span class="line">    date DATE</span><br><span class="line">)ENGINE&#x3D;InnoDB DEFAULT CHARSET&#x3D;utf8;</span><br><span class="line"># default charset &#x3D; utf8 ----&gt;表示该表按照UTF-8的编码存放中文;</span><br><span class="line"># ENGINE &#x3D; InnoDB ----&gt;mysql的一种存储引擎，MyISAM和InnoDB是其中常用的两种；</span><br><span class="line"># 这里使用ENGINE&#x3D;InnoDB 是因为后续要使用的外键约束只有在InnoDB中才生效。</span><br></pre></td></tr></table></figure>
