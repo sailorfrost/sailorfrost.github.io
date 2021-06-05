@@ -1,6 +1,277 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>索引优化</title>
+    <url>/article/484a2385.html</url>
+    <content><![CDATA[<h1 id="MySQL高级"><a href="#MySQL高级" class="headerlink" title="MySQL高级"></a>MySQL高级</h1><hr>
+<h2 id="一、MySQL的逻辑架构"><a href="#一、MySQL的逻辑架构" class="headerlink" title="一、MySQL的逻辑架构"></a>一、MySQL的逻辑架构</h2><p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/20210605161159.jpg" alt="1"></p>
+<a id="more"></a>
+
+<h4 id="1、逻辑分层图"><a href="#1、逻辑分层图" class="headerlink" title="1、逻辑分层图"></a>1、逻辑分层图</h4><img src="https://gitee.com/hlmin/blog-image/raw/master/image/20210605155935.png" alt="img">
+
+<p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/20210605155908.jpg" alt="img"></p>
+<h4 id="2、各层详解"><a href="#2、各层详解" class="headerlink" title="2、各层详解"></a>2、各层详解</h4><h6 id="1、连接层"><a href="#1、连接层" class="headerlink" title="1、连接层"></a>1、连接层</h6><p>是一些客户端和连接服务。主要完成连接、授权认证等操作。</p>
+<h6 id="2、业务逻辑（服务）层"><a href="#2、业务逻辑（服务）层" class="headerlink" title="2、业务逻辑（服务）层"></a>2、业务逻辑（服务）层</h6><p>核心服务功能。包括内部语句优化，内部缓存等。</p>
+<h6 id="3、引擎层"><a href="#3、引擎层" class="headerlink" title="3、引擎层"></a>3、引擎层</h6><p>真正负责了MySQL中数据的存储和读取，服务器通过API和引擎通信。</p>
+<h6 id="4、文件日志层"><a href="#4、文件日志层" class="headerlink" title="4、文件日志层"></a>4、文件日志层</h6><p>将数据存储在文件系统，完成与存储引擎的交互。</p>
+<h4 id="3、存储引擎架构是最大亮点"><a href="#3、存储引擎架构是最大亮点" class="headerlink" title="3、存储引擎架构是最大亮点"></a>3、存储引擎架构是最大亮点</h4><p>插件式的存储引擎架构将查询处理和其他的系统任务以及数据的存储提取相分离。</p>
+<h2 id="二、MyISAM和InnoDB"><a href="#二、MyISAM和InnoDB" class="headerlink" title="二、MyISAM和InnoDB"></a>二、MyISAM和InnoDB</h2><h4 id="1、2种引擎的对比"><a href="#1、2种引擎的对比" class="headerlink" title="1、2种引擎的对比"></a>1、2种引擎的对比</h4><table>
+<thead>
+<tr>
+<th align="center">对比项</th>
+<th align="center">MyISAM</th>
+<th align="center">InnoDB</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">外键</td>
+<td align="center">不支持</td>
+<td align="center">支持</td>
+</tr>
+<tr>
+<td align="center">事务</td>
+<td align="center">不支持</td>
+<td align="center">支持</td>
+</tr>
+<tr>
+<td align="center">行表锁</td>
+<td align="center">表锁：即使操作一条记录也会锁住整张表。</td>
+<td align="center">行锁：操作时只锁住某行，不影响其他行。适合高并发的操作。</td>
+</tr>
+<tr>
+<td align="center">缓存</td>
+<td align="center">只缓存索引，不缓存真实数据。</td>
+<td align="center">不仅缓存索引，还缓存真实数据。对内存要求较高，内存大小对性能有决定性的影响。</td>
+</tr>
+<tr>
+<td align="center">表空间</td>
+<td align="center">小</td>
+<td align="center">大</td>
+</tr>
+<tr>
+<td align="center">关注点</td>
+<td align="center">性能：偏向读取操作</td>
+<td align="center">事务</td>
+</tr>
+<tr>
+<td align="center">默认安装</td>
+<td align="center">Y</td>
+<td align="center">Y</td>
+</tr>
+</tbody></table>
+<h2 id="三、性能分析"><a href="#三、性能分析" class="headerlink" title="三、性能分析"></a>三、性能分析</h2><h5 id="1、mysqlQuery-Optimizer（性能优化器）"><a href="#1、mysqlQuery-Optimizer（性能优化器）" class="headerlink" title="1、mysqlQuery Optimizer（性能优化器）"></a>1、mysqlQuery Optimizer（性能优化器）</h5><h5 id="2、mysql常见瓶颈"><a href="#2、mysql常见瓶颈" class="headerlink" title="2、mysql常见瓶颈"></a>2、mysql常见瓶颈</h5><ul>
+<li>CPU：</li>
+<li>IO：</li>
+<li>服务器硬件性能：</li>
+</ul>
+<h5 id="3、Explain"><a href="#3、Explain" class="headerlink" title="3、Explain"></a>3、Explain</h5><h6 id="3-1、是什么？"><a href="#3-1、是什么？" class="headerlink" title="3.1、是什么？"></a>3.1、是什么？</h6><p>查看执行计划：模拟优化器执行SQL查询语句。</p>
+<h6 id="3-2、能干嘛？"><a href="#3-2、能干嘛？" class="headerlink" title="3.2、能干嘛？"></a>3.2、能干嘛？</h6><ul>
+<li>表的读取顺序</li>
+<li>数据读取操作的操作类型</li>
+<li>哪些索引可以使用</li>
+<li>那些索引被实际使用</li>
+<li>表之间的引用</li>
+</ul>
+<h6 id="3-3、怎么玩？"><a href="#3-3、怎么玩？" class="headerlink" title="3.3、怎么玩？"></a>3.3、怎么玩？</h6><p>explain  + SQL语句</p>
+<h6 id="3-4、字段解释？"><a href="#3-4、字段解释？" class="headerlink" title="3.4、字段解释？"></a>3.4、字段解释？</h6><ul>
+<li>id：执行顺序。<ul>
+<li>相同：由上到下执行。</li>
+<li>不同：主查询先执行，如果是子查询，id值越大，优先级越高，先被执行</li>
+<li>相同又有不同：先执行值大的</li>
+</ul>
+</li>
+<li>select_type：查询类型：SIMPLE、SUBQUERY、PRIMARY</li>
+<li>table</li>
+<li>type:访问类型，至少达到range级别，最好是ref级别。</li>
+</ul>
+<h5 id="4、case"><a href="#4、case" class="headerlink" title="4、case"></a>4、case</h5><p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/20210605160055.png" alt="image-20210416112721671"></p>
+<p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/20210605160105.png" alt="image-20210416112910145"></p>
+<p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/20210605160112.png" alt="image-20210416113044250"></p>
+<h2 id="四、索引以及优化分析"><a href="#四、索引以及优化分析" class="headerlink" title="四、索引以及优化分析"></a>四、索引以及优化分析</h2><h3 id="1、索引介绍"><a href="#1、索引介绍" class="headerlink" title="1、索引介绍"></a>1、索引介绍</h3><h4 id="1、索引是什么？"><a href="#1、索引是什么？" class="headerlink" title="1、索引是什么？"></a>1、索引是什么？</h4><p>MySQL官方：        </p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">索引是帮助高效获取数据的数据结构：</span><br><span class="line">    在数据本身之外，数据库还维护着一个满足特定查找算法的数据结构，这个数据结构以某种方式指向数据，</span><br><span class="line">    这样就可以在这些数据结构的基础上实现高级查找算法，这种数据结构就叫索引。</span><br><span class="line">    </span><br><span class="line">排好序的快速查找数据结构。</span><br></pre></td></tr></table></figure>
+
+<p>嗯，所以索引是数据结构。</p>
+<h4 id="2、为什么要使用索引？"><a href="#2、为什么要使用索引？" class="headerlink" title="2、为什么要使用索引？"></a>2、为什么要使用索引？</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">目的在于提高查询效率。</span><br></pre></td></tr></table></figure>
+
+<h4 id="3、索引的优势？"><a href="#3、索引的优势？" class="headerlink" title="3、索引的优势？"></a>3、索引的优势？</h4><ul>
+<li>提高了数据检索的效率，降低了数据库IO成本。</li>
+<li>降低了数据排序的成本，降低了CPU消耗。</li>
+</ul>
+<h4 id="4、索引的劣势？"><a href="#4、索引的劣势？" class="headerlink" title="4、索引的劣势？"></a>4、索引的劣势？</h4><ul>
+<li>索引占用空间：索引也是一张表，保存了主键与索引字段，指向实体表的记录。</li>
+<li>提高了查询速度，降低了更新速度。</li>
+</ul>
+<h4 id="5、索引的分类？"><a href="#5、索引的分类？" class="headerlink" title="5、索引的分类？"></a>5、索引的分类？</h4><h5 id="1、单值索引"><a href="#1、单值索引" class="headerlink" title="1、单值索引"></a>1、单值索引</h5><p>一个索引只包含一个列，但是一个表可以有多个单值索引。</p>
+<h5 id="2、唯一索引"><a href="#2、唯一索引" class="headerlink" title="2、唯一索引"></a>2、唯一索引</h5><p>索引列的值必须唯一，但可以为空值。</p>
+<h5 id="3、复合索引"><a href="#3、复合索引" class="headerlink" title="3、复合索引"></a>3、复合索引</h5><p>一个索引包含多个列。</p>
+<h4 id="6、基本语法"><a href="#6、基本语法" class="headerlink" title="6、基本语法"></a>6、基本语法</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">创建：</span><br><span class="line">	create [unique] index 索引名 on 表名(列名);</span><br><span class="line">	alter 表名 add [unique] index 索引名 on 表名(列名);</span><br><span class="line">删除：</span><br><span class="line">	drop index 索引名 on 表名;</span><br><span class="line">	</span><br><span class="line">查看:</span><br><span class="line">	show index from 表名;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="7、索引结构"><a href="#7、索引结构" class="headerlink" title="7、索引结构"></a>7、索引结构</h4><h5 id="1、BTree"><a href="#1、BTree" class="headerlink" title="1、BTree"></a>1、BTree</h5><ul>
+<li>检索原理：</li>
+</ul>
+<h5 id="2、Hash"><a href="#2、Hash" class="headerlink" title="2、Hash"></a>2、Hash</h5><h5 id="3、full-text"><a href="#3、full-text" class="headerlink" title="3、full-text"></a>3、full-text</h5><h5 id="4、R-Tree"><a href="#4、R-Tree" class="headerlink" title="4、R-Tree"></a>4、R-Tree</h5><h4 id="8、哪些情况建立索引？"><a href="#8、哪些情况建立索引？" class="headerlink" title="8、哪些情况建立索引？"></a>8、哪些情况建立索引？</h4><ul>
+<li><strong>主键自动建立唯一索引</strong></li>
+<li>频繁作为查询条件的字段应该建立索引</li>
+<li>查询中与其他表关联的字段，外键关系建立索引</li>
+<li>频繁更新的字段不适合建立索引：因为不仅需要更新记录，还更新了索引</li>
+<li>查询中排序的字段，统计和分组的字段</li>
+</ul>
+<h4 id="9、哪些情况不适合建立索引？"><a href="#9、哪些情况不适合建立索引？" class="headerlink" title="9、哪些情况不适合建立索引？"></a>9、哪些情况不适合建立索引？</h4><ul>
+<li>表的记录太少</li>
+<li>经常增删改的表</li>
+<li>数据重复且分布平均的表字段</li>
+</ul>
+<h3 id="2、索引优化分析"><a href="#2、索引优化分析" class="headerlink" title="2、索引优化分析"></a>2、索引优化分析</h3><h4 id="1、哪些情况需要优化分析？"><a href="#1、哪些情况需要优化分析？" class="headerlink" title="1、哪些情况需要优化分析？"></a>1、哪些情况需要优化分析？</h4><ul>
+<li>性能下降</li>
+<li>执行时间长</li>
+<li>等待时间长</li>
+</ul>
+<p><strong>造成的常见原因？</strong></p>
+<ul>
+<li>SQL语句写得烂</li>
+<li>索引失效<ul>
+<li>单值索引</li>
+<li>复合索引</li>
+</ul>
+</li>
+<li>关联查询太多join</li>
+<li>服务器调优以及各个参数设置</li>
+</ul>
+<h4 id="2、SQL的执行顺序？"><a href="#2、SQL的执行顺序？" class="headerlink" title="2、SQL的执行顺序？"></a>2、SQL的执行顺序？</h4><h4 id="3、Join类型"><a href="#3、Join类型" class="headerlink" title="3、Join类型"></a>3、Join类型</h4><ul>
+<li>左连接     left  join</li>
+<li>右连接     right join</li>
+<li>内连接     inner join</li>
+<li>左外连接  </li>
+<li>右外连接</li>
+<li>全连接   full  outer  join</li>
+<li>全外连接</li>
+</ul>
+<h2 id="五、索引优化案例"><a href="#五、索引优化案例" class="headerlink" title="五、索引优化案例"></a>五、索引优化案例</h2><h3 id="1、单表优化案例"><a href="#1、单表优化案例" class="headerlink" title="1、单表优化案例"></a>1、单表优化案例</h3><h5 id="1、建表"><a href="#1、建表" class="headerlink" title="1、建表"></a>1、建表</h5><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span> article(</span><br><span class="line">   	<span class="keyword">id</span> <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">not</span> <span class="literal">null</span> primary <span class="keyword">key</span> auto_increment,</span><br><span class="line">   	author_id <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">   	category_id <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">   	views <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">   	title <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">   	<span class="keyword">content</span> <span class="built_in">text</span> <span class="keyword">not</span> <span class="literal">null</span>);</span><br><span class="line">   	</span><br><span class="line">   	</span><br><span class="line">   	<span class="keyword">insert</span> <span class="keyword">into</span> article(author_id,category_id,views,title,<span class="keyword">content</span>)</span><br><span class="line">   	<span class="keyword">values</span></span><br><span class="line">   	(<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="string">&#x27;1&#x27;</span>,<span class="string">&#x27;1&#x27;</span>),</span><br><span class="line">   	(<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="string">&#x27;2&#x27;</span>,<span class="string">&#x27;2&#x27;</span>),</span><br><span class="line">   	(<span class="number">3</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="string">&#x27;3&#x27;</span>,<span class="string">&#x27;3&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="2、查询建表是否成功？"><a href="#2、查询建表是否成功？" class="headerlink" title="2、查询建表是否成功？"></a>2、查询建表是否成功？</h5><p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/20210605160314.png" alt="image-20210416222009619"></p>
+<h5 id="3、给出查询题目"><a href="#3、给出查询题目" class="headerlink" title="3、给出查询题目"></a>3、给出查询题目</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">查询category_id为<span class="number">1</span>且content大于<span class="number">1</span>的情况下，views最多的article_id。</span><br></pre></td></tr></table></figure>
+
+<h5 id="4、普通查询语句"><a href="#4、普通查询语句" class="headerlink" title="4、普通查询语句"></a>4、普通查询语句</h5><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">id</span>,author_id <span class="keyword">from</span> article <span class="keyword">where</span> category_id = <span class="number">1</span> <span class="keyword">and</span> comments &gt; <span class="number">1</span> <span class="keyword">order</span> <span class="keyword">by</span> views <span class="keyword">desc</span> <span class="keyword">limit</span> <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<p>explain分析语句：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">explain</span> <span class="keyword">select</span> <span class="keyword">id</span>,author_id <span class="keyword">from</span> article <span class="keyword">where</span> category_id = <span class="number">1</span> <span class="keyword">and</span> comments &gt; <span class="number">1</span> <span class="keyword">order</span> <span class="keyword">by</span> views <span class="keyword">desc</span> <span class="keyword">limit</span> <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<p>分析如图：</p>
+<p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/20210605160320.png" alt="image-20210416223029581"></p>
+<p>我们需要注意上面字段！</p>
+<p>需要优化的地方：</p>
+<ul>
+<li>type是ALL级别，表示全表扫描。</li>
+<li>key为null，就是没有使用索引</li>
+<li>extra：使用了文件内部排序</li>
+</ul>
+<p>查询表索引：</p>
+<p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/20210605160351.png" alt="image-20210416223438362"></p>
+<hr>
+<h2 id="开始优化"><a href="#开始优化" class="headerlink" title="开始优化"></a>开始优化</h2><hr>
+<h5 id="5、新建索引-删除索引"><a href="#5、新建索引-删除索引" class="headerlink" title="5、新建索引*删除索引"></a>5、新建索引*删除索引</h5><p>建立依据：</p>
+<p>复合索引</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">index</span> idx_article_ccv <span class="keyword">on</span> article(category_id,comments,views);</span><br></pre></td></tr></table></figure>
+
+<p>查询表的索引：</p>
+<p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/20210605160410.png" alt="image-20210416225421817"></p>
+<p>索引建立之后，再次执行查询语句：</p>
+<p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/20210605160418.png" alt="image-20210416225726291"></p>
+<p>type级别已经是range了，但是仍然使用了内部文件排序！—————–<strong>范围之后的索引会失效！也就是ccv的v失效了。</strong></p>
+<img src="https://gitee.com/hlmin/blog-image/raw/master/image/20210605160452.png" alt="image-20210416230948040" style="zoom:80%;">
+
+<p>我们再次优化：</p>
+<p>删除之前的索引，重新建立：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#删除索引</span></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">index</span> idx_article_ccv <span class="keyword">on</span> article;</span><br><span class="line"></span><br><span class="line"><span class="comment">#建立索引</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">index</span> idx_article_cv <span class="keyword">on</span> article(category_id,views);</span><br></pre></td></tr></table></figure>
+
+<p>再次执行查询：<br><img src="https://gitee.com/hlmin/blog-image/raw/master/image/20210605160459.png" alt="image-20210416230554050"></p>
+<p>至此，完成索引优化！</p>
+<h3 id="2、双表优化案例"><a href="#2、双表优化案例" class="headerlink" title="2、双表优化案例"></a>2、双表优化案例</h3><h5 id="1、建表-1"><a href="#1、建表-1" class="headerlink" title="1、建表"></a>1、建表</h5><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"> <span class="keyword">create</span> <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span> <span class="keyword">class</span>(</span><br><span class="line">     <span class="keyword">id</span> <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">not</span> <span class="literal">null</span> auto_increment,</span><br><span class="line">     card <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">     primary <span class="keyword">key</span>(<span class="keyword">id</span>));</span><br><span class="line">     </span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span> book(</span><br><span class="line">    bookid <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">not</span> <span class="literal">null</span> auto_increment,</span><br><span class="line">    card <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">    primary <span class="keyword">key</span>(bookid));</span><br></pre></td></tr></table></figure>
+
+<p>建表是否成功？</p>
+<p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/20210605160506.png" alt="image-20210417093019028"></p>
+<h5 id="2、插入数据"><a href="#2、插入数据" class="headerlink" title="2、插入数据"></a>2、插入数据</h5><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">class</span>(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">class</span>(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">class</span>(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">class</span>(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">class</span>(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">class</span>(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">class</span>(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">class</span>(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">class</span>(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">class</span>(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">class</span>(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">class</span>(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">class</span>(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">class</span>(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">class</span>(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">class</span>(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">class</span>(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">class</span>(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">class</span>(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">class</span>(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> book(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> book(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> book(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> book(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> book(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> book(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> book(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> book(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> book(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> book(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> book(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> book(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> book(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> book(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> book(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> book(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> book(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> book(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> book(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> book(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="3、给出查询语句"><a href="#3、给出查询语句" class="headerlink" title="3、给出查询语句"></a>3、给出查询语句</h5><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> book <span class="keyword">left</span> <span class="keyword">join</span> <span class="keyword">class</span> <span class="keyword">on</span> book.card = class.card;</span><br></pre></td></tr></table></figure>
+
+<p>explain分析：</p>
+<p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/20210605160512.png" alt="image-20210417094802113"></p>
+<hr>
+<h2 id="开始优化-1"><a href="#开始优化-1" class="headerlink" title="开始优化"></a>开始优化</h2><hr>
+<h5 id="4、添加索引，进行优化"><a href="#4、添加索引，进行优化" class="headerlink" title="4、添加索引，进行优化"></a>4、添加索引，进行优化</h5><ul>
+<li>给左表建索引？</li>
+</ul>
+<p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/20210605160518.png" alt="image-20210417095401756"></p>
+<p>explain分析：</p>
+<p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/20210605160524.png" alt="image-20210417095329968"></p>
+<ul>
+<li>删除book索引，给class加索引</li>
+</ul>
+<p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/20210605160528.png" alt="image-20210417095739393"></p>
+<p>explain分析：</p>
+<p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/20210605160533.png" alt="image-20210417095913807"></p>
+<p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/20210605160538.png" alt="image-20210417100153551"></p>
+<h3 id="3、三表优化案例"><a href="#3、三表优化案例" class="headerlink" title="3、三表优化案例"></a>3、三表优化案例</h3><h5 id="1、建表-2"><a href="#1、建表-2" class="headerlink" title="1、建表"></a>1、建表</h5><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span> phone(phoneid <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">not</span> <span class="literal">null</span> aotu_increment,card <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">not</span> <span class="literal">null</span>,primary <span class="keyword">key</span>(phoneid));</span><br><span class="line"></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> phone(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> phone(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> phone(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> phone(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> phone(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> phone(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> phone(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> phone(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> phone(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> phone(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> phone(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> phone(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> phone(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> phone(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> phone(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> phone(card) <span class="keyword">values</span> (<span class="keyword">FLOOR</span>(<span class="number">1</span>+(<span class="keyword">RAND</span>()*<span class="number">20</span>)));</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="2、添加索引"><a href="#2、添加索引" class="headerlink" title="2、添加索引"></a>2、添加索引</h5><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> phone <span class="keyword">add</span> <span class="keyword">index</span> idx_phone_card (card);</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="3、给出查询语句-1"><a href="#3、给出查询语句-1" class="headerlink" title="3、给出查询语句"></a>3、给出查询语句</h5><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">class</span> <span class="keyword">left</span> <span class="keyword">join</span> book <span class="keyword">on</span> class.card = book.card <span class="keyword">left</span> <span class="keyword">join</span> phone <span class="keyword">on</span> book.card = phone.card;</span><br></pre></td></tr></table></figure>
+
+<p>explain分析：</p>
+<p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/20210605160544.png" alt="image-20210417142017808"></p>
+<p>优化：</p>
+<p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/20210605160549.png" alt="image-20210417142502665"></p>
+<h2 id="六、join语句的索引优化总结"><a href="#六、join语句的索引优化总结" class="headerlink" title="六、join语句的索引优化总结"></a>六、join语句的索引优化总结</h2><ul>
+<li><img src="https://gitee.com/hlmin/blog-image/raw/master/image/20210605160557.png" alt="image-20210417142545083"></li>
+<li><img src="https://gitee.com/hlmin/blog-image/raw/master/image/20210605160602.png" alt="image-20210417143223153"></li>
+<li><img src="https://gitee.com/hlmin/blog-image/raw/master/image/20210605160609.png" alt="image-20210417145321466"></li>
+<li><img src="https://gitee.com/hlmin/blog-image/raw/master/image/20210605160615.png" alt="image-20210417150150904"></li>
+<li><img src="https://gitee.com/hlmin/blog-image/raw/master/image/20210605160620.png" alt="image-20210417150203585"></li>
+</ul>
+<h2 id="七、索引失效"><a href="#七、索引失效" class="headerlink" title="七、索引失效"></a>七、索引失效</h2><p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/20210605160627.png" alt="image-20210417150840855"></p>
+<h5 id="1、全值匹配"><a href="#1、全值匹配" class="headerlink" title="1、全值匹配"></a>1、全值匹配</h5><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">table</span> <span class="keyword">where</span> <span class="keyword">id</span> = <span class="number">5</span> <span class="keyword">and</span> age = <span class="number">23</span> <span class="keyword">and</span> <span class="keyword">name</span> = <span class="string">&#x27;tom&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>全值匹配时，字段顺序可以和索引列字段顺序不一致。但是，最好按顺序来！</p>
+<h5 id="2、最佳左前缀法则"><a href="#2、最佳左前缀法则" class="headerlink" title="2、最佳左前缀法则"></a>2、最佳左前缀法则</h5><p><img src="/article/484a2385.htm/image-20210417151735233.png" alt="image-20210417151735233"></p>
+<ul>
+<li>最左前列开始</li>
+<li>不能跳过，严格按照顺序</li>
+</ul>
+<h5 id="3、不在索引列做操作，否则索引失效！"><a href="#3、不在索引列做操作，否则索引失效！" class="headerlink" title="3、不在索引列做操作，否则索引失效！"></a>3、不在索引列做操作，否则索引失效！</h5><p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/20210605160718.png" alt="image-20210417153147680"></p>
+<h5 id="4、范围导致索引失效"><a href="#4、范围导致索引失效" class="headerlink" title="4、范围导致索引失效"></a>4、范围导致索引失效</h5><p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/20210605160727.png" alt="image-20210417153919868"></p>
+<p>注意：<br>            age的索引用到了，但是是用于排序，不是查找！</p>
+<h5 id="5、尽量不使用-查询"><a href="#5、尽量不使用-查询" class="headerlink" title="5、尽量不使用 * 查询"></a>5、尽量不使用 * 查询</h5><h5 id="6、尽量不使用-lt-gt"><a href="#6、尽量不使用-lt-gt" class="headerlink" title="6、尽量不使用 !=  &lt;&gt;"></a>6、尽量不使用 !=  &lt;&gt;</h5><p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/20210605160734.png" alt="image-20210417154932551"></p>
+<p><img src="/article/484a2385.htm/image-20210417155007293.png" alt="image-20210417155007293"></p>
+<h5 id="7、is-null-is-not-null"><a href="#7、is-null-is-not-null" class="headerlink" title="7、is null         is not null"></a>7、is null         is not null</h5><p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/20210605160740.png" alt="image-20210417155137947"></p>
+<p><img src="/article/484a2385.htm/image-20210417155218620.png" alt="image-20210417155218620"></p>
+<h5 id="8、通配符在前"><a href="#8、通配符在前" class="headerlink" title="8、通配符在前"></a>8、通配符在前</h5><p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/20210605160745.png" alt="image-20210417204757436"></p>
+<p>通配符在后：</p>
+<p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/20210605160751.png" alt="image-20210417204900597"></p>
+<p>面试题：</p>
+<p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/20210605160829.png" alt="image-20210417210059865"></p>
+<p>使用复合（覆盖）索引：即索引的字段列和你要查询的字段一一对应，最好是不多不少，也可以前面多，但是不能后面多。</p>
+<p>假设索引字段列是  a,b,c</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">x,a,b,c; <span class="comment">------索引不失效</span></span><br><span class="line">a,b;   <span class="comment">------索引不失效</span></span><br><span class="line">a,b,c,d; <span class="comment">----------不符合，索引失效，全表扫描</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="9、类型转换"><a href="#9、类型转换" class="headerlink" title="9、类型转换"></a>9、类型转换</h5><p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/20210605154412.png" alt="image-20210418125343605"></p>
+]]></content>
+      <categories>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>索引</tag>
+        <tag>数据库优化</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>数据库语言四大分类</title>
     <url>/article/42b03218.html</url>
     <content><![CDATA[<h1 id="数据库语言四大分类"><a href="#数据库语言四大分类" class="headerlink" title="数据库语言四大分类"></a>数据库语言四大分类</h1><p><img src="https://gitee.com/hlmin/blog-image/raw/master/image/20210605153908.jpeg"></p>
